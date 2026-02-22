@@ -1,0 +1,346 @@
+:root {
+  --bg: #ffffff;
+  --text: #111111;
+  --text-muted: #6b7280;
+  --accent: #2563eb;
+  --accent-hover: #1d4ed8;
+  --border: #e5e7eb;
+  --shadow: 0 1px 3px rgba(0,0,0,.06);
+  --shadow-lg: 0 4px 24px rgba(0,0,0,.08);
+  --radius: 12px;
+  --radius-lg: 16px;
+  --font: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  font-family: var(--font);
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--text);
+  background: var(--bg);
+}
+
+main { overflow-x: hidden; }
+
+section {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 4rem 1.5rem;
+}
+
+@media (min-width: 768px) {
+  section { padding: 5rem 2rem; }
+}
+
+/* Hero */
+.hero {
+  display: grid;
+  gap: 3rem;
+  align-items: center;
+  padding-top: 3rem;
+  padding-bottom: 4rem;
+}
+
+@media (min-width: 1024px) {
+  .hero {
+    grid-template-columns: 1fr;
+    justify-items: center;
+    gap: 4rem;
+    padding-top: 4rem;
+    padding-bottom: 6rem;
+  }
+}
+
+.hero-content { text-align: center; }
+
+.hero h1 {
+  margin: 0 0 1rem;
+  font-size: clamp(1.875rem, 5vw, 2.75rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+}
+
+.hero-sub {
+  margin: 0 auto 1.75rem;
+  font-size: 1.125rem;
+  color: var(--text-muted);
+  max-width: 36ch;
+}
+
+.cta-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.875rem 1.5rem;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #fff;
+  background: var(--text);
+  border: none;
+  border-radius: var(--radius);
+  text-decoration: none;
+  transition: transform .15s, box-shadow .2s;
+}
+
+.cta-primary:hover {
+  background: #1f2937;
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-lg);
+}
+
+.cta-primary:active { transform: translateY(0); }
+
+.cta-icon { flex-shrink: 0; }
+
+.cta-micro {
+  margin: 1rem 0 0;
+  font-size: 0.8125rem;
+  color: var(--text-muted);
+}
+
+.cta-large { padding: 1rem 1.75rem; font-size: 1.0625rem; }
+
+/* Device mockup */
+.hero-device {
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+
+.device-glow {
+  position: absolute;
+  inset: -20% 0;
+  background: linear-gradient(135deg, rgba(37,99,235,.08) 0%, transparent 50%);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.device-frame {
+  position: relative;
+  width: 260px;
+  padding: 12px;
+  background: #1a1a1a;
+  border-radius: 36px;
+  box-shadow: var(--shadow-lg), 0 0 0 1px rgba(0,0,0,.1);
+}
+
+.device-screen {
+  aspect-ratio: 9/19.5;
+  background: #f8fafc;
+  border-radius: 28px;
+  overflow: hidden;
+}
+
+.device-screenshot {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Social proof */
+.social-proof {
+  text-align: center;
+  padding: 2rem 1.5rem;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+
+.social-proof p {
+  margin: 0 0 1rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--text-muted);
+}
+
+.metrics {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem 2rem;
+  font-size: 0.8125rem;
+  color: var(--text-muted);
+}
+
+/* How it works */
+.how-it-works h2,
+.features h2,
+.performance h2,
+.final-cta h2 {
+  margin: 0 0 2.5rem;
+  font-size: clamp(1.5rem, 3vw, 1.75rem);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  text-align: center;
+}
+
+.steps {
+  display: grid;
+  gap: 2rem;
+}
+
+@media (min-width: 768px) {
+  .steps { grid-template-columns: repeat(3, 1fr); }
+}
+
+.step {
+  padding: 1.5rem;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  transition: box-shadow .2s, transform .2s;
+}
+
+.step:hover {
+  box-shadow: var(--shadow-lg);
+}
+
+.step-icon {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1rem;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text);
+  background: #f3f4f6;
+  border-radius: 10px;
+}
+
+.step h3 {
+  margin: 0 0 0.5rem;
+  font-size: 1.0625rem;
+  font-weight: 600;
+}
+
+.step p {
+  margin: 0;
+  font-size: 0.9375rem;
+  color: var(--text-muted);
+}
+
+/* Features */
+.feature-grid {
+  display: grid;
+  gap: 1rem;
+  text-align: center;
+}
+
+@media (min-width: 640px) {
+  .feature-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+.feature-card {
+  padding: 1.5rem;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  transition: box-shadow .2s, border-color .2s;
+}
+
+.feature-card:hover {
+  box-shadow: var(--shadow-lg);
+  border-color: #d1d5db;
+}
+
+.feature-icon {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 0.75rem;
+  color: var(--text-muted);
+}
+
+.feature-icon svg { flex-shrink: 0; }
+
+.feature-card h3 {
+  margin: 0 0 0.5rem;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.feature-card p {
+  margin: 0;
+  font-size: 0.9375rem;
+  color: var(--text-muted);
+}
+
+/* Performance */
+.performance {
+  text-align: center;
+  background: #fafafa;
+  border-radius: var(--radius-lg);
+}
+
+.performance h2 { margin-bottom: 1rem; }
+
+.performance p {
+  margin: 0 auto 1.5rem;
+  max-width: 42ch;
+  color: var(--text-muted);
+}
+
+/* Final CTA */
+.final-cta {
+  text-align: center;
+  padding-bottom: 3rem;
+}
+
+.final-cta h2 { margin-bottom: 1.5rem; }
+
+/* Footer */
+footer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.5rem 2rem;
+  border-top: 1px solid var(--border);
+  font-size: 0.8125rem;
+  color: var(--text-muted);
+}
+
+footer p { margin: 0; }
+
+footer nav {
+  display: flex;
+  gap: 1.5rem;
+}
+
+footer a {
+  color: var(--text-muted);
+  text-decoration: none;
+}
+
+footer a:hover { color: var(--text); }
+
+/* Animations */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.hero-content,
+.hero-device,
+.step,
+.feature-card {
+  animation: fadeUp .5s ease-out backwards;
+}
+
+.hero-device { animation-delay: .1s; }
+.step:nth-child(1) { animation-delay: 0s; }
+.step:nth-child(2) { animation-delay: .05s; }
+.step:nth-child(3) { animation-delay: .1s; }
+.feature-card:nth-child(1) { animation-delay: 0s; }
+.feature-card:nth-child(2) { animation-delay: .05s; }
+.feature-card:nth-child(3) { animation-delay: .1s; }
+.feature-card:nth-child(4) { animation-delay: .15s; }
